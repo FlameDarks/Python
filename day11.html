@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="echarts.min.js"></script>
+</head>
+<script>
+    function draw() {
+        var app = document.getElementById("app");
+        var chart=echarts.init(app);
+        var option={
+            xAxis:{
+                data:["一月","二月","三月"]
+            },
+            yAxis:{},
+            series:{
+                type:"bar",
+                data:[200,500,100]
+            }
+        }
+        chart.setOption(option);
+    }
+    // function pie(){
+    //     var app = document.getElementById("app");
+    //     var chart = echarts.init(app);
+    //     var option={
+    //         tooltip:{
+    //             trigger:"item",
+    //             formatter:"{b}~{c}"
+    //         },
+    //         series:{
+    //             type:"pie",
+    //             data:[
+    //                 {name:"北京",value:2000},
+    //                 {name:"郑州",value: 1000},
+    //                 {name:"禹州",value:30}
+    //             ]
+    //         }
+    //     }
+    //     chart.setOption(option);
+    // }
+</script>
+<body>
+    <canvas id="app" style="width: 400px;height: 400px"></canvas>
+    <div>
+        <button onclick="draw()">绘制</button>
+    </div>
+<!--    <div id="app" style="width: 400px;height: 400px"></div>-->
+<!--    <div>-->
+<!--        <button onclick="pie()">饼图</button>-->
+<!--    </div>-->
+</body>
+</html>
