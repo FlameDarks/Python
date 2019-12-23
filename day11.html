@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script src="echarts.min.js"></script>
+<!--    <script src="echarts.min.js"></script>-->
+    <script src="http://api.map.baidu.com/api?v=3.0&ak=gjoGvINPlqsh6droj9mKDqQLoAYfGYFQ"></script>
 </head>
 <script>
-    function draw() {
-        var app = document.getElementById("app");
-        var chart=echarts.init(app);
-        var option={
-            xAxis:{
-                data:["一月","二月","三月"]
-            },
-            yAxis:{},
-            series:{
-                type:"bar",
-                data:[200,500,100]
-            }
-        }
-        chart.setOption(option);
+    function map() {
+        var map=new BMap.Map("app");
+        var point=new BMap.Point(113.551697,34.15725);
+        map.centerAndZoom(point,12);
     }
+    // function draw() {
+    //     var app = document.getElementById("app");
+    //     var chart=echarts.init(app);
+    //     var option={
+    //         xAxis:{
+    //             data:["一月","二月","三月"]
+    //         },
+    //         yAxis:{},
+    //         series:{
+    //             type:"bar",
+    //             data:[200,500,100]
+    //         }
+    //     }
+    //     chart.setOption(option);
+    // }
     // function pie(){
     //     var app = document.getElementById("app");
     //     var chart = echarts.init(app);
@@ -42,13 +48,17 @@
     // }
 </script>
 <body>
-    <canvas id="app" style="width: 400px;height: 400px"></canvas>
-    <div>
-        <button onclick="draw()">绘制</button>
-    </div>
+<!--    <canvas id="app" style="width: 400px;height: 400px"></canvas>-->
+<!--    <div>-->
+<!--        <button onclick="draw()">绘制</button>-->
+<!--    </div>-->
 <!--    <div id="app" style="width: 400px;height: 400px"></div>-->
 <!--    <div>-->
 <!--        <button onclick="pie()">饼图</button>-->
 <!--    </div>-->
+    <div id="app" style="width: 500px;height: 500px"></div>
+    <div>
+        <button onclick="map()">地图</button>
+    </div>
 </body>
 </html>
