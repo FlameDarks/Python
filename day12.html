@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://api.map.baidu.com/api?v=3.0&ak=gjoGvINPlqsh6droj9mKDqQLoAYfGYFQ"></script>
+    <script src="echarts.min.js"></script>
+    <script src="bmap.js"></script>
+    <script>
+        function dmap() {
+            var map=document.getElementById("map");
+            var chart=echarts.init(map);
+            var option={
+                tooltip:{
+                    trigger:"item",
+                    formatter:"{b}~{c}"
+                },
+                bmap:{
+                    center:[113.291697,34.08725],
+                    zoom:7,
+                    roam:true
+                },
+                series:{
+                    type:"effectScatter",
+                    coordinateSystem:"bmap",
+                    data:[
+                        {name:"禹州",value:[113.291697,34.08725,30]},
+                        {name:"北京",value:[116.23,39.54,2000]},
+                        {name:"上海",value:[121.48,31.22,3000]}
+                    ],
+                    showEffectOn:"render",
+                    rippleEffect: {
+                        brushType:'stroke'
+                    },
+                    hoverAnimation:true,
+                    label:{
+                        normal:{
+                            formatter: '{b}',
+                            position:'right',
+                            show:true
+                        }
+                    },
+                    itemStyle:{
+                        normal: {
+                            color:'purple',
+                            shadowBlur:2,
+                            shadowColor:'#333'
+                        }
+                    },
+                    zlevel:1
+                }
+            }
+            chart.setOption(option);
+        }
+    </script>
+</head>
+<body>
+    <div id="map" style="width: 500px;height: 500px"></div>
+    <div>
+        <button onclick="dmap()">地图数据</button>
+    </div>
+</body>
+</html>
