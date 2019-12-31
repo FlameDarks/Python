@@ -1,6 +1,5 @@
-import numpy as np
-
+import numpy
 def createData():
-    data=np.load("gdp.npz",allow_pickle=True)
+    data=numpy.load("gdp.npz",allow_pickle=True)
     print(data["values"])
 createData()
